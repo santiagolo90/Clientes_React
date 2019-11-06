@@ -63,7 +63,7 @@ class Formulario extends React.Component{
      enviarForm = async (e)  => {
       e.preventDefault();
       //this.props.custom(e)
-      
+      let rta = false;
       
       let cliModel = new cliente(this.state.nombre,
                                   this.state.apellido,
@@ -71,13 +71,12 @@ class Formulario extends React.Component{
                                   this.state.compras)
       let cliFinal = new ClienteDTO(cliModel);
       if (this.state._id) {
-        alert("modifiar");
-        this.props.history.push("/clientes")
+        rta = await this.cs.editClienteMongo(this.state);
       }else{
-        const a = await this.cs.addClienteMongo(cliFinal);
-        if (a == true) {
+        rta = await this.cs.addClienteMongo(cliFinal);
+      }
+      if (rta == true) {
           this.props.history.push("/clientes")
-        }
       }
     }
 

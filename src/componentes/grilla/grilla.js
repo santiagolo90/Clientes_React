@@ -76,7 +76,7 @@ class Grilla extends React.Component{
     }
 
      eliminarCliente = async (rowData) => {
-        await this.listadoClientes.removeClienteMongo(rowData.id);
+        await this.listadoClientes.removeClienteMongo(rowData._id);
         const data = await this.listadoClientes.getClientesMongo();
          this.setState({clientes: data})
         

@@ -45,7 +45,7 @@ class ClientesService extends React.Component{
 
 
     editClienteMongo(cliModel){   
-      return fetch(url+"api/clientes"+ cliModel.cliente.id, {
+      return fetch(url+"api/cliente/", {
         method: 'PUT',
         body: JSON.stringify(cliModel),
         headers:{
@@ -59,7 +59,7 @@ class ClientesService extends React.Component{
     }
 
     removeClienteMongo(clienteID){   
-      return fetch(url+"api/clientes"+clienteID, {
+      return fetch(url+"api/cliente/"+clienteID, {
         method: 'DELETE',
       }).then(res => res.json())
       .catch(error => console.error('Error:', error))
