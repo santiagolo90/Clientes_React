@@ -8,15 +8,24 @@
     font-size: calc(10px + 2vmin);
     color: #282c34;
   }
-  /* .myLink{
+
+.nav-link{
     text-decoration:none !important;
     color: rgba(255,255,255,.5);
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-  .myLink:hover{
     color: #fff;
+    padding: 0px !important;
   }
-  .myLink:active{
-    color: #fff;
-  } */
+  .nav-link:hover{
+    color: rgba(255,255,255,.5);
+  }
+  .nav-link:active{
+    color: rgba(255,255,255,.5);
+  }
+
+
+
+.MuiDrawer-paperAnchorLeft {
+  left: 0;
+  right: auto;
+  width: 30%;
+}
