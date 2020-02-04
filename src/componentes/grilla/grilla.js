@@ -8,22 +8,24 @@ import ClientesService from '../../servicios/cliente-service';
 import Dialogo from '../../utils/dialogo/dialogo';
 import { Alert } from 'react-bootstrap';
 import { BrowserRouter as Router, Route, Link,withRouter } from "react-router-dom";
-
+//import SimpleDialog from "../venta/Venta2"
+import FormDialog from "../venta/Venta4";
 
 
 class Grilla extends React.Component{
     listadoClientes;
-
+    
     constructor(props){
         super(props);
         this.state = {};
-        this.listadoClientes = new ClientesService()
+        this.listadoClientes = new ClientesService();
     }
 
     async componentDidMount() {
 
          const data = await this.listadoClientes.getClientesMongo();
          this.setState({clientes: data})
+         
     }
 
     actionTemplate = (rowData, column) => {
@@ -43,14 +45,15 @@ class Grilla extends React.Component{
                 onClick={ e =>{ this.modificarCliente(rowData)}}>
 
             </Button>
-            <Button 
+            <FormDialog/>
+            {/* <Button 
                 type="button" 
                 icon="pi pi-shopping-cart" 
                 className="p-button-succes"
                 style={{marginRight: '.5em'}}
                 onClick={ e =>{ this.cargarVenta(rowData)}}>
 
-            </Button>
+            </Button> */}
         </div>;
     }
 
@@ -105,8 +108,9 @@ class Grilla extends React.Component{
                 <Column field="cliente.apellido" header="Apellido" style={{width:'10%'}} sortable={true}/>
                 <Column field="cliente.cta_cte" header="cta_cte" style={{width:'10%'}} sortable={true}/>
                 <Column body={this.actionTemplate} style={{textAlign:'center', width: '8em'}}/>
-
             </DataTable>
+            
+
         </div>
     ])}
 

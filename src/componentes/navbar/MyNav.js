@@ -81,17 +81,18 @@ class MyNav extends React.Component{
 
     handleToggle = () => this.setState({ open: !this.state.open });
 
-    showBar = () => {
-      this.setState({ show: 'bar', open: false });
-    };
 
+    navTo = (e,ruta) => {
+      this.props.history.push(ruta)
+      this.setState({ show: null, open: false });
+    };
 
     listarMenu = () => {
       let menu = []
       for (let i = 0; i < this.menuList.length; i++) {
         menu.push(
-        <MenuItem key={i } onClick={this.handleToggle}>
-          <a onClick={() => this.props.history.push(this.menuList[i].ruta) }>{this.menuList[i].nombre}</a>
+        <MenuItem key={i } onClick={ e => { this.navTo(e,this.menuList[i].ruta)}}>
+          <a >{this.menuList[i].nombre}</a>
         </MenuItem>)
       }
       return menu

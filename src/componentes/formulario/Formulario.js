@@ -8,7 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import PropType from 'prop-types';
 import ClientesService from '../../servicios/cliente-service';
-import Grilla from '../grilla/grilla'
+import './Formulario.css';
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -26,6 +26,8 @@ const useStyles = makeStyles(theme => ({
     menu: {
       width: 200,
     },
+
+
   }));
 
 
@@ -86,7 +88,8 @@ class Formulario extends React.Component{
       // console.log("state: ",this.state);
       
         return(
-            <div>
+            <div className="formAlta">
+              <h2>Alta de usuarios</h2>
                 <form className={useStyles.container} onSubmit={this.enviarForm}>
                     <TextField
                         id="outlined-name"
